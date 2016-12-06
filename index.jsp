@@ -1,51 +1,73 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.cunho.model.UserVO" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     UserVO userVO = (UserVO) request.getSession().getAttribute("currentUser");
-    if(userVO != null) {
-        response.sendRedirect("index.jsp");
+    if(userVO == null) {
+        response.sendRedirect("login.jsp");
     }
 %>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/layout.css" rel="stylesheet">
-
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.min.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap 101 Template</title>
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/layout.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="js/html5shiv.min.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
 </head>
 <body>
-
-<div class="col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4 col-sm-4 col-sm-offset-4 loginBox">
-    <form role="form" action="login" method="post">
-        <div class="form-group">
-            <label for="USERNAME">用户名：</label>
-            <input type="text" class="form-control" value="${UserVO.USERNAME}" id="USERNAME" name="USERNAME" placeholder="请输入用户名">
+<div class="header" style="height:70px;">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#headerNav">
+                    <span class="sr-only">Toggle Nav</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#this" class="navbar-brand">Cunho</a>
+            </div>
+            <div class="collapse navbar-collapse" id="headerNav">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="active"><a href="#this">asdf</a> </li>
+                    <li class="dropdown">
+                        <a href="#this" class="dropdown-toggle" data-toggle="dropdown">분류<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#this">분류1</a> </li>
+                            <li><a href="#this">분류2</a> </li>
+                            <li><a href="#this">분류3</a> </li>
+                            <li class="divider"></li>
+                            <li><a href="#this">분류4</a> </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- login start-->
+                <div class="navbar-right" style="margin:0 10px;"><button type="button" class="btn navbar-btn"><span class="glyphicon glyphicon-log-out"></span></button></div>
+                <div class="navbar-text navbar-right" style="margin-right:0px;">欢迎光临！cunho </div>
+                <!-- //login end -->
+                <!-- Not login start-->
+                <div class="navbar-right" style="margin-right:0px;"><button type="button" class="btn btn-success navbar-btn">Sign In</button></div>
+                <!-- //Not login end -->
+            </div>
         </div>
-        <div class="form-group">
-            <label for="PASSWORD">密码：</label>
-            <input type="password" class="form-control" value="${UserVO.PASSWORD}" id="PASSWORD" name="PASSWORD" placeholder="请输入密码">
-        </div>
-        ${UserVO.NICKNAME}
-        <div class="checkbox">
-            <label>
-                <input type="checkbox"> 记住我
-            </label>
-            <span>${ERRORMSG}</span>
-        </div>
-        <button type="submit" class="btn btn-success btn-block loginSubmit">登录</button>
-    </form>
+    </nav>
 </div>
 
-
+<div class="contents">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">asdf</div>
+            <div class="col-md-3">asdf</div>
+        </div>
+    </div>
+</div>
 
 <script src="js/jquery-1.9.1.js"></script>
 <script src="js/bootstrap.min.js"></script>
